@@ -1,25 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Stack } from "@mui/material";
+import { FilterContextProvider } from "./context/context";
+import FilterBar from "./components/filterBar";
+import Menu from "./components/menu";
+import Searchbar from "./components/searchBar";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <FilterContextProvider>
+      <div className="App">
+        <Searchbar />
+        <Stack direction="row">
+          <FilterBar />
+          <Menu />
+        </Stack>
+      </div>
+    </FilterContextProvider>
   );
 }
 
